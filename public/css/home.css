@@ -1,0 +1,145 @@
+/* Base Styles */
+body {
+  background-color: #f4f6f9;
+  font-family: "Inter", "Plus Jakarta Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+  line-height: 1.7;
+}
+
+/* General Container */
+.box, .explorebox {
+  background: #ffffff;
+  border-radius: 16px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  width: 75vw;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover,
+.explorebox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Flex Layout */
+.innerbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.content {
+  flex: 1 1 350px;
+}
+
+.img {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.hello-img {
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  color: #1abc9c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.35rem;
+  color: #34495e;
+  font-weight: 600;
+  border-left: 5px solid #1abc9c;
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Lists */
+ul.outerlist {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.outerlist > li {
+  margin-bottom: 1.5rem;
+}
+
+ul.outerlist ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+/* Explore Box */
+.exploreinnerbox2 {
+  text-align: center;
+}
+
+.exploreinnerbox2 a {
+  color: #0077b5;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin: 0.75rem 0;
+  transition: color 0.3s ease;
+}
+
+.exploreinnerbox2 a:hover {
+  color: #004471;
+  text-decoration: underline;
+}
+
+.exploreinnerbox2 img {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .innerbox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box, .explorebox {
+    width: 90vw;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+
+

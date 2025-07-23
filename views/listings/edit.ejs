@@ -1,0 +1,108 @@
+    <% layout("/layouts/boilerplate") %>
+
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: url("/uploads/img/edit-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .edit-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-width: 660px;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .edit-btn {
+    width: 100%;
+    border-radius: 100px;
+    background-color: #1abc9c;
+    border: none;
+  }
+
+  .edit-btn:hover {
+    background-color: white;
+    color: #1abc9c;
+    border: solid 2px #1abc9c;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color:#1abc9c;
+  }
+</style>
+
+
+
+
+
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="edit-card">
+    <h3 class="text-center mb-4 text-success fw-bold"><h1>Edit Your Hosting</h1></h3>
+
+    <form method="POST" 
+          action="/listings/<%= listing._id %>?_method=PUT" 
+          class="needs-validation" 
+          novalidate 
+          enctype="multipart/form-data">
+
+      <div class="mb-3"> 
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+        <div class="valid-feedback">Title looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+        <div class="invalid-feedback">Description should be short</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Original Listing Image</label><br />
+        <img src="<%= originalImageUrl %>" alt="Original Listing" class="img-fluid rounded" />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload New Image</label>
+        <input name="listing[image]" type="file" class="form-control" />
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+          <div class="invalid-feedback">Price should be valid</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Country should be valid</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+        <div class="invalid-feedback">Location should be valid</div>
+      </div>
+
+      <button type="submit" class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+  </div>
+</div>

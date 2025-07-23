@@ -1,0 +1,78 @@
+.search-btn{
+      background-color:#1abc9c ;
+      color: #ffff;
+      border-radius: 25px;
+      padding: 0 1rem 0 1rem;
+    }
+
+      .search-btn:hover {
+      background-color:white ;
+      color: #1abc9c;
+      border: solid;
+      
+    }
+    .search-btn i {
+      display: inline;
+      margin-right: 0.5rem;
+    }
+    .search-input{
+      border-color: #1abc9c;
+      border-radius: 25px;
+      padding: 0.5rem 4rem 0.5rem 4rem;
+      font-size: 1rem;
+    }
+     .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px #1abc9c;
+      border-color: #1abc9c;
+     }
+   .nav-link-login,.nav-link-host {
+  border: solid #1abc9c;
+  border-radius: 25px;
+  padding: 0 1rem;
+  text-decoration: none;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.8rem;
+  margin-right: 1rem;
+  color: #1abc9c;
+  margin-top: 0.2rem;
+}
+.nav-link-host:hover ,.nav-link-login:hover {
+background-color:#1abc9c;
+border: none;
+color: #fff;
+}
+
+.nav-link-signup {
+  background-color: #1abc9c;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0 1rem 0 1rem;
+  text-decoration: none;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.6rem;
+  margin-bottom: 0.4rem;
+ 
+}
+.nav-link-signup:hover{
+  background-color:white ;
+      color: #1abc9c;
+      border: solid;
+}
+.navbar-nav{
+    margin-right: 1rem;
+    align-items: center;
+}
+
+.brand-text {
+font-family: 'Raleway', sans-serif;
+   
+  font-size: 1.5rem;
+  color: #1abc9c;
+}
