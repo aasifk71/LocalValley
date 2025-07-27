@@ -11,6 +11,20 @@ This platform reflects my skills in designing, building, and deploying scalable 
 🔗 **Live Demo**: [https://localvalley.onrender.com](https://localvalley.onrender.com)
 
 ---
+---
+
+## 🧰 Tech Stack
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/EJS-FFB13B?style=for-the-badge&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+</p>
+
+---
 
 ## 📌 Table of Contents
 
