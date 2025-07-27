@@ -1,4 +1,9 @@
 const Listing=require("../models/listing");
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapToken = process.env.MAP_TOKEN;
+const geocodingClient = mbxGeocoding({ accessToken: mapToken});
+
+
 
 
 module.exports.index = async (req, res) => {
@@ -28,19 +33,36 @@ module.exports.showListing = (async (req, res) => {
   
   res.render("listings/show.ejs", { listing });
 })
+module.exports.createListing = async (req, res, next) => {
+  const response = await geocodingClient
+    .forwardGeocode({
+      query: req.body.listing.location,
+      limit: 1,
+    })
+    .send();
 
-module.exports.createListing = async (req, res,next) => {
-   let url = req.file.path;
-   let filename = req.file.filename;
+  const geoData = response.body.features[0].geometry;
+  if (!geoData) {
+    req.flash("error", "Could not find location on map. Please try a more specific address.");
+    return res.redirect("/listings/new");
+  }
 
- const newListing = new Listing(req.body.listing);
+  const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
-  newListing.image = {url,filename}
-  await newListing.save();
-  req.flash("success","New Listing Created!");
+  newListing.image = { url: req.file.path, filename: req.file.filename };
+  newListing.geometry = geoData;
+
+  let savedListing = await newListing.save();
+ 
+  req.flash("success", "New Listing Created!");
   res.redirect("/listings");
-  
-}
+};
+
+
+
+
+
+
 module.exports.renderEditForm = async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id);
@@ -54,22 +76,39 @@ module.exports.renderEditForm = async (req, res) => {
   res.render("listings/edit.ejs", { listing,originalImageUrl });
 }
 module.exports.updateListing = async (req, res) => {
+  const { id } = req.params;
 
-  
-  let { id } = req.params;
- 
+  // Fetch geodata from Mapbox for updated location
+  const response = await geocodingClient
+    .forwardGeocode({
+      query: req.body.listing.location,
+      limit: 1,
+    })
+    .send();
+
+  const geoData = response.body.features[0]?.geometry;
+
+  // Update listing basic info
   let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
 
-  if( typeof req.file != "undefined"){
-  let url = req.file.path;
-   let filename = req.file.filename;
-
-   listing.image = {url,filename}
-   await listing.save();
+  // Update geometry if available
+  if (geoData) {
+    listing.geometry = geoData;
   }
-  req.flash("success","Listing Updated! ")
+
+  // Update image if file uploaded
+  if (typeof req.file !== "undefined") {
+    listing.image = {
+      url: req.file.path,
+      filename: req.file.filename
+    };
+  }
+
+  await listing.save();
+
+  req.flash("success", "Listing Updated!");
   res.redirect(`/listings/${id}`);
-}
+};
 
 module.exports.destroyListing=async (req, res) => {
   let { id } = req.params;

@@ -51,32 +51,64 @@ body{
     align-items: space-evenly;
  }
  /* Cards */
- .listing-card{
-    border: none !important;
-    margin-bottom: 2rem;
- }
- .card-img-top{
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
- }
- .card-body{
-    padding: 0 !important;
- }
- .card-text p {
-    font-weight: 400 !important;
- }
- .listing-link{
-    text-decoration: none;
- }
- /* card Effect */
- .card-img-overlay{
-    opacity: 0;
- }
- .card-img-overlay:hover{
-    opacity: 0.2;
-    background-color:white ;
- }
+ /* 🟢 Main Card Styling */
+
+/* 🟢 Main Card Styling */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🟢 Subtle Zoom + Lift on Hover */
+.listing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* 🖼️ Image Styling */
+.card-img-top {
+  border-radius: 1rem 1rem 0 0 !important;
+  width: 100% !important;
+  height: 200px;
+  object-fit: cover !important;
+}
+
+/* 📦 Body Padding */
+.card-body {
+  padding: 1rem !important;
+}
+
+/* 📝 Text Appearance */
+.card-text p {
+  font-weight: 400 !important;
+  color: #555;
+}
+
+/* 🔗 Remove Underline from Link */
+.listing-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ✨ Overlay Effect */
+.card-img-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* 🤍 White Hover Overlay */
+.card-img-overlay:hover {
+  opacity: 0.3;
+  background-color: rgba(255, 255, 255, 0.4); /* soft white */
+  backdrop-filter: blur(2px); /* optional glassy effect */
+  border-radius: 1rem;
+}
+
+
  /*New Page 
  .add-btn{
    background-color: #fe424d !important;
@@ -109,4 +141,29 @@ body{
     padding-left: 0;
     padding-right: 0;
  }
+
+ /*MAP*/
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.custom-marker {
+  background-image: url('/images/logo.png'); /* Replace with your logo path */
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.listing-title {
+  font-size: 1.75rem;         /* larger and readable */
+  font-weight: 600;           /* semi-bold but not heavy */
+  color: #2c3e50;             /* rich, professional dark tone */
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.3px;     /* tighter spacing for modern look */
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
 

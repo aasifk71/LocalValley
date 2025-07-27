@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/home.css" />
 <% layout("/layouts/boilerplate") %>
   <%=success %>
    <style>
@@ -15,6 +16,7 @@
     }
 
     .filter:hover{
+      color: #1abc9c;
       opacity: 1;
       cursor: pointer;
     }
@@ -26,20 +28,53 @@
     display: none;
    }
 
-   .tax-toggle{
-    border: 1px solid black;
-    border-radius: 1rem;
-    height: 3.25rem;
-    padding: 1rem;
-    margin-left:2rem ;
-    display: flex;
-    align-items: center;
-   }
+   .tax-toggle {
+  border: 3px solid #1abc9c;
+  color: #1abc9c;
+  border-radius: 1rem;
+  height: 3.25rem;
+  padding: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.tax-toggle:hover {
+  color: white;
+  background-color: #1abc9c;
+}
+
+/* ✅ Make the switch green when checked */
+.form-check-input:checked {
+  background-color: rgb(45, 215, 234);
+  border-color: rgb(0, 255, 179);
+}
+
+/* ✅ Optional: Change switch circle border on focus */
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.4);
+  border-color: #1abc9c;
+}
+
 
    </style>
     <!--<form method="GET" action="/listings/new">
       <button>Create New Listing</button>
     </form> -->
+
+   <div class="welcome-overlay">
+  <div class="welcome-text">
+   
+    <h1>Welcome to LocalValley</h1>
+    <p>Your Gateway to Unique Stays</p>
+   
+  </div>
+</div>
+
+
+
+
 
     <div id="filters">
       <div class="filter">

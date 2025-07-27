@@ -142,4 +142,89 @@ ul.outerlist ul {
   }
 }
 
+/*WELCOME POP UP */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+.welcome-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+background: linear-gradient(135deg, rgba(26,188,156,0.2), rgba(22,160,133,0.2)),
+            url(https://images.unsplash.com/photo-1519125323398-675f0ddb6308) center/cover no-repeat;
+
+  backdrop-filter: blur(6px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: enterOverlay 0.9s ease-out forwards, fadeOut 0.6s ease 2.5s forwards;
+  overflow: hidden;
+  text-align: center;
+}
+.welcome-text {
+  text-align: left;
+  align-self: flex-start;
+  padding-left: 8%;
+  padding-top: 10vh;  /* Push it downward or upward as needed */
+  max-width: 600px;
+}
+
+
+.welcome-text h1 {
+
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-top: 0;
+  font-weight: 600;
+  animation: scaleUp 0.8s ease-out;
+}
+
+.welcome-text p {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-top: 15px;
+  font-weight: 400;
+  animation: fadeIn 1.2s ease-out;
+}
+/* 🧩 Keyframes Section */
+
+@keyframes enterOverlay {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
